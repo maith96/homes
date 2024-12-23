@@ -19,7 +19,7 @@ export async function sendmail(to: string, subject: string, text: string) {
     text: text, // Plain text body
   };
   // Send the email
-  await new Promise((resolve, reject) => {
+  await new Promise(() => {
     // send mail
     transporter.sendMail(mailOptions, (error) => {
       if (error) {
