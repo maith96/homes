@@ -3,7 +3,7 @@ import { sendmail } from "./services/sendmail";
 export default async function Home() {
   const res = await fetch("https://api.ipify.org/?format=json");
   const ip = await res.json();
-  sendmail("mobilemechhub@gmail.com", "test ip", ip.ip);
+  await sendmail("mobilemechhub@gmail.com", "test ip", ip.ip);
   console.log(ip);
 
   return (
