@@ -19,13 +19,15 @@ export async function sendmail(to: string, subject: string, text: string) {
     text: text, // Plain text body
   };
   // Send the email
-  await new Promise(() => {
+  await new Promise((resolve, reject) => {
     // send mail
-    transporter.sendMail(mailOptions, (error) => {
+    transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
+        reject(error);
       } else {
         console.log("Email sent to: " + to);
+        resolve(info);
       }
     });
   });
