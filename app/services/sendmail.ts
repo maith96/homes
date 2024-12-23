@@ -19,7 +19,7 @@ export async function sendmail(to: string, subject: string, text: string) {
     text: text, // Plain text body
   };
   // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (error) => {
     if (error) {
       console.log(error);
     } else {
